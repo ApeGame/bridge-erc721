@@ -1,0 +1,15 @@
+.openzeppelin
+node_modules
+.env
+coverage
+coverage.json
+.deps
+.DS_Store
+
+#Hardhat files
+cache
+network.ts
+secret.ts
+config.ts
+artifacts
+

@@ -1,0 +1,30 @@
+export const CONTRACTS: { [network: string]: any } = {
+  bscmainnet: {
+    proxyAdmin: "0x21de102994bc986e02a795e0f39e5275817e7ef3",
+    proxyAdminPrivate:"",
+    owner: "0x43f970fb4256763b3c03bed26df01ebda6f488a5",
+    ownerPrivate:"",
+    bridge: "0x52dc819F5b7e23d3493b785f8a10e998144E6173",
+  },
+  apemainnet: {
+    proxyAdmin: "0x21de102994bc986e02a795e0f39e5275817e7ef3",
+    proxyAdminPrivate:"",
+    owner: "0x43f970fb4256763b3c03bed26df01ebda6f488a5",
+    ownerPrivate:"",
+    bridge: "0x6Be6D75f422FBcb42C90420621115718E7101724",
+  },
+  polygonmainnet: {
+    proxyAdmin: "0x21de102994bc986e02a795e0f39e5275817e7ef3",
+    proxyAdminPrivate:"",
+    owner: "0x43f970fb4256763b3c03bed26df01ebda6f488a5",
+    ownerPrivate:"",
+    bridge: "0xc05DB3d68E57281eea7b9d956d5Ed195a8B99eD7",
+  },
+  edgemainnet: {
+    proxyAdmin: "0x21de102994bc986e02a795e0f39e5275817e7ef3",
+    proxyAdminPrivate:"",
+    owner: "0x43f970fb4256763b3c03bed26df01ebda6f488a5",
+    ownerPrivate:"",
+    bridge: "0xb8180C5F329944cede412072Ff369eFe51501b64",
+  },
+};
