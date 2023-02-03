@@ -11,20 +11,12 @@ let txfees: BigNumber[];
 
 switch (network.name) {
   case "bscmainnet":
-    chids = [137, 16350, 100];
-    txfees = [
-      ethers.utils.parseEther("0.0002"),
-      ethers.utils.parseEther("0.002"),
-      ethers.utils.parseEther("0.0002"),
-    ];
+    chids = [16350];
+    txfees = [ethers.utils.parseEther("0.002")];
     break;
-  case "polygonmainnet":
-    chids = [56, 16350, 100];
-    txfees = [
-      ethers.utils.parseEther("2"),
-      ethers.utils.parseEther("2"),
-      ethers.utils.parseEther("0.05"),
-    ];
+  case "apemain":
+    chids = [56];
+    txfees = [ethers.utils.parseEther("5")];
     break;
 }
 
