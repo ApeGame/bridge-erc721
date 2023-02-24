@@ -21,6 +21,12 @@ const config: HardhatUserConfig = {
     cache: "./cache",
     artifacts: "./cache/artifacts",
   },
+  etherscan: {
+    apiKey: {
+      polygonMumbai: "AETMWJBB9WTFK95EE98W8D3JTBXWGX83SZ",
+      polygon: "AETMWJBB9WTFK95EE98W8D3JTBXWGX83SZ",
+    },
+  },
 };
 
 export default config;
