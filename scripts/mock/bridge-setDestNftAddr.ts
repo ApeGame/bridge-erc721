@@ -12,13 +12,13 @@ if (network.name === "bsctest") {
   chids = [12077, 80001];
   dstNfts = [
     "0xA3dC8E06d41393286683A5Fc36b6D7246F73bb68",
-    "0xb3c92d6d71A71Ad7289B0A2cbae19E9fAFbdD85b",
+    "0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c",
   ];
 } else if (network.name === "ankr") {
   chids = [97, 80001];
   dstNfts = [
     "0x1710C34AcDF4a6758a6039187f75F627B741ee0e",
-    "0xb3c92d6d71A71Ad7289B0A2cbae19E9fAFbdD85b",
+    "0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c",
   ];
 } else if (network.name === "polygontest") {
   chids = [12077, 97];
