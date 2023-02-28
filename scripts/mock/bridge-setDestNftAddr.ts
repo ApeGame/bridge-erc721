@@ -3,28 +3,32 @@ import { ethers, network } from "hardhat";
 // eslint-disable-next-line node/no-missing-import
 import { CONTRACTS } from "../../config";
 
-const { mockerc721, bridge } = CONTRACTS[network.name];
+const { bridge } = CONTRACTS[network.name];
 
-const srcNft: string = mockerc721;
+// const srcNft: string = mockerc721;
+let srcNft: string;
 let chids: number[];
 let dstNfts: string[];
 if (network.name === "bsctest") {
+  srcNft = "0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288";
   chids = [12077, 80001];
   dstNfts = [
-    "0xA3dC8E06d41393286683A5Fc36b6D7246F73bb68",
+    "0x866df3e1b203cc3bf50eb4f707d29ce5b665d4d1",
     "0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c",
   ];
 } else if (network.name === "ankr") {
+  srcNft = "0x866df3e1b203cc3bf50eb4f707d29ce5b665d4d1";
   chids = [97, 80001];
   dstNfts = [
-    "0x1710C34AcDF4a6758a6039187f75F627B741ee0e",
+    "0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288",
     "0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c",
   ];
 } else if (network.name === "polygontest") {
-  chids = [12077, 97];
+  srcNft = "0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c";
+  chids = [97, 12077];
   dstNfts = [
-    "0xA3dC8E06d41393286683A5Fc36b6D7246F73bb68",
-    "0x1710C34AcDF4a6758a6039187f75F627B741ee0e",
+    "0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288",
+    "0x866df3e1b203cc3bf50eb4f707d29ce5b665d4d1",
   ];
 }
 
