@@ -11,19 +11,36 @@ let txfees: BigNumber[];
 
 switch (network.name) {
   case "ankr":
-    chids = [97, 80001];
-    txfees = [ethers.utils.parseEther("1"), ethers.utils.parseEther("0.5")];
+    chids = [97, 80001, 1442];
+    txfees = [
+      ethers.utils.parseEther("1"),
+      ethers.utils.parseEther("0.5"),
+      ethers.utils.parseEther("1"),
+    ];
     break;
   case "bsctest":
-    chids = [12077, 80001];
+    chids = [12077, 80001, 1442];
     txfees = [
       ethers.utils.parseEther("0.001"),
       ethers.utils.parseEther("0.0015"),
+      ethers.utils.parseEther("0.01"),
     ];
     break;
   case "polygontest":
-    chids = [12077, 97];
-    txfees = [ethers.utils.parseEther("0.01"), ethers.utils.parseEther("0.05")];
+    chids = [12077, 97, 1442];
+    txfees = [
+      ethers.utils.parseEther("0.01"),
+      ethers.utils.parseEther("0.05"),
+      ethers.utils.parseEther("0.05"),
+    ];
+    break;
+  case "polygontestzkevm":
+    chids = [12077, 97, 80001];
+    txfees = [
+      ethers.utils.parseEther("0.01"),
+      ethers.utils.parseEther("0.05"),
+      ethers.utils.parseEther("0.0001"),
+    ];
     break;
 }
 

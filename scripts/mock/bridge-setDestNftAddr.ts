@@ -11,24 +11,35 @@ let chids: number[];
 let dstNfts: string[];
 if (network.name === "bsctest") {
   srcNft = "0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288";
-  chids = [12077, 80001];
+  chids = [12077, 80001, 1442];
   dstNfts = [
     "0x866df3e1b203cc3bf50eb4f707d29ce5b665d4d1",
     "0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c",
+    "0x0C800Cd00E992C804413C7BB701959078f5B48Fe",
   ];
 } else if (network.name === "ankr") {
   srcNft = "0x866df3e1b203cc3bf50eb4f707d29ce5b665d4d1";
-  chids = [97, 80001];
+  chids = [97, 80001, 1442];
   dstNfts = [
     "0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288",
     "0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c",
+    "0x0C800Cd00E992C804413C7BB701959078f5B48Fe",
   ];
 } else if (network.name === "polygontest") {
   srcNft = "0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c";
-  chids = [97, 12077];
+  chids = [97, 12077, 1442];
   dstNfts = [
     "0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288",
     "0x866df3e1b203cc3bf50eb4f707d29ce5b665d4d1",
+    "0x0C800Cd00E992C804413C7BB701959078f5B48Fe",
+  ];
+} else if (network.name === "polygontestzkevm") {
+  srcNft = "0x0C800Cd00E992C804413C7BB701959078f5B48Fe";
+  chids = [97, 12077, 80001];
+  dstNfts = [
+    "0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288",
+    "0x866df3e1b203cc3bf50eb4f707d29ce5b665d4d1",
+    "0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c",
   ];
 }
 
