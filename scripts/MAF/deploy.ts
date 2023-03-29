@@ -37,6 +37,18 @@ async function main() {
         "https://explorer.bas.metaapesgame.com/api"
       )}`
     );
+  } else if (network.name === "polygonmainnetzkevm") {
+    console.log(
+      `bridgeNFT logic contract(${
+        factory.address
+      }) verify & push contract, guid: ${await VerifyContractEthScan(
+        factory.address,
+        "contracts/bridgeNft.sol:BridgeNFT",
+        "",
+        "https://api-zkevm.polygonscan.com/api",
+        "QADPA8U7I9EU4K1I672Y9QHRAY7PFJ5WAX"
+      )}`
+    );
   }
 }
 
