@@ -5,30 +5,18 @@ import { CONTRACTS } from "../../config";
 
 const { bridge } = CONTRACTS[network.name];
 
+// const srcNft: string = mockerc721;
 let srcNft: string;
 let chids: number[];
 let dstNfts: string[];
-if (network.name === "bscmainnet") {
-  srcNft = "0x5704075803A122Fc5afc8B60f07B84B77e065B5e";
-  chids = [16350, 137];
-  dstNfts = [
-    "0x2562a3C729F71825415993335d5a759A3c4c21fc",
-    "0x5409A1CD58FAF6d2Ad5Abc30c4C550C9fa85C909",
-  ];
-} else if (network.name === "apemain") {
-  srcNft = "0x2562a3C729F71825415993335d5a759A3c4c21fc";
-  chids = [56, 137];
-  dstNfts = [
-    "0x5704075803A122Fc5afc8B60f07B84B77e065B5e",
-    "0x5409A1CD58FAF6d2Ad5Abc30c4C550C9fa85C909",
-  ];
-} else if (network.name === "polygonmainnet") {
-  srcNft = "0x5409A1CD58FAF6d2Ad5Abc30c4C550C9fa85C909";
-  chids = [16350, 56];
-  dstNfts = [
-    "0x2562a3C729F71825415993335d5a759A3c4c21fc",
-    "0x5704075803A122Fc5afc8B60f07B84B77e065B5e",
-  ];
+if (network.name === "ankr") {
+  srcNft = "0x41ecfB27845912A952A1774971d6F9D95C84c370";
+  chids = [80001];
+  dstNfts = ["0x77E825be7701Fe49D4b825304C77B3754f80D54d"];
+} else if (network.name === "polygontest") {
+  srcNft = "0x77E825be7701Fe49D4b825304C77B3754f80D54d";
+  chids = [12077];
+  dstNfts = ["0x41ecfB27845912A952A1774971d6F9D95C84c370"];
 }
 
 async function main() {
