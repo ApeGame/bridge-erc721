@@ -10,6 +10,11 @@ MAF:
     bsc-test: 0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288
     polygon-test-zkevm: 0xaC8C25a8D2e3d26795A43Cee3315B214D4a6F2Fa
 
-relics:
+relics:  coq => polygon zkevm 、 polygon <=> polygon zkevm
     coq-test: 0x41ecfB27845912A952A1774971d6F9D95C84c370
     polygon-test: 0x77E825be7701Fe49D4b825304C77B3754f80D54d
+    polygon-test-zkevm: 0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987 (new)
+
+no bridge MAF: coq <=> polygon zkevm
+    coq-test: 0x16e1b5517945Ed455CdfE91d2bE50CA293Ebb754 (new)
+    polygon-test-zkevm: 0xf039e0C2Bb17709eCA6E1be4A80aE1705841e196 (new)

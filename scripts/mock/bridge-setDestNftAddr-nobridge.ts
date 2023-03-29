@@ -10,17 +10,13 @@ let srcNft: string;
 let chids: number[];
 let dstNfts: string[];
 if (network.name === "ankr") {
-  srcNft = "0x41ecfB27845912A952A1774971d6F9D95C84c370";
+  srcNft = "0x16e1b5517945Ed455CdfE91d2bE50CA293Ebb754";
   chids = [1442];
-  dstNfts = ["0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987"];
+  dstNfts = ["0xf039e0C2Bb17709eCA6E1be4A80aE1705841e196"];
 } else if (network.name === "polygontestzkevm") {
-  srcNft = "0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987";
-  chids = [80001];
-  dstNfts = ["0x77E825be7701Fe49D4b825304C77B3754f80D54d"];
-} else if (network.name === "polygontest") {
-  srcNft = "0x77E825be7701Fe49D4b825304C77B3754f80D54d";
-  chids = [1442];
-  dstNfts = ["0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987"];
+  srcNft = "0xf039e0C2Bb17709eCA6E1be4A80aE1705841e196";
+  chids = [12077];
+  dstNfts = ["0x16e1b5517945Ed455CdfE91d2bE50CA293Ebb754"];
 }
 
 async function main() {
