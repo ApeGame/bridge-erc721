@@ -9,6 +9,7 @@ MAF: ape <=> bsc <=> polygon <=> polygon zkevm
     bsc: 0x5704075803A122Fc5afc8B60f07B84B77e065B5e (mr.wu)
     ape:  0x2562a3C729F71825415993335d5a759A3c4c21fc (new, owner to mulsig)
     polygon zkevm: 0x852759BDdd5C9170E24135C76957C50A732f1d5a (myself)
+    ape: 0xf9eba2fe3f8d03d098a439fab2038c737d3dbb94 (celer)
 
 relics: ape => polygon、 polygon <=> polygon zkevm
     ape:  0xA72b7321517A763Dd879019564406fB5fC39cfd0 (lead)
