@@ -4,18 +4,18 @@ bridge:
     ape: 0x15F8B4D023A2343ebd1B34721425F342a2930B3D (owner to mulsig)
     polygon zkevm: 0xA84E60c92B2731868a51850560767B59DAa5feB0 (myself)
 
-MAF: ape <=> bsc <=> polygon
+MAF: ape <=> bsc <=> polygon <=> polygon zkevm
     polygon: 0x5409A1CD58FAF6d2Ad5Abc30c4C550C9fa85C909 (owner to mulsig, image contract)
     bsc: 0x5704075803A122Fc5afc8B60f07B84B77e065B5e (mr.wu)
     ape:  0x2562a3C729F71825415993335d5a759A3c4c21fc (new, owner to mulsig)
     polygon zkevm: 0x852759BDdd5C9170E24135C76957C50A732f1d5a (myself)
 
-relics: ape => polygon
+relics: ape => polygon、 polygon <=> polygon zkevm
     ape:  0xA72b7321517A763Dd879019564406fB5fC39cfd0 (lead)
     polygon:  0xe13c50c3120eEf7731B7223905701D2cA8E68882 (owner to mulsig)
     polygon zkevm: 0x0Ae14d584A55094Eb2f4Ac5B256216649947ca01 (myself)
 
-no bridge MAF: ape <=> polygon
+no bridge MAF: ape <=> polygon <=> polygon zkevm
     ape: 0xc805C32B3D9a29E54F6c01d4d0a322697BE23C64 (upgraded)
     polygon: 0x721e4D95b8e0A8D5d2475a945d1CB1054bB932D0 (owner to mulsig)
     polygon zkevm: 0x6CF6384D05EC0c430af3aC46135D4574cCeeF97d (myself)
