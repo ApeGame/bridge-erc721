@@ -8,8 +8,8 @@ coverage.json
 
 #Hardhat files
 cache
-network.ts
+network.*ts
 secret.ts
-config.ts
+config.*ts
 artifacts
-
+cache-zk

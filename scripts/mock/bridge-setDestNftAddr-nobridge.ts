@@ -11,12 +11,12 @@ let chids: number[];
 let dstNfts: string[];
 if (network.name === "ankr") {
   srcNft = "0x16e1b5517945Ed455CdfE91d2bE50CA293Ebb754";
-  chids = [1442];
-  dstNfts = ["0xf039e0C2Bb17709eCA6E1be4A80aE1705841e196"];
+  chids = [280];
+  dstNfts = ["0x574D7A48a3f2900Aeb34B67feCC21eeD400A4230"];
 } else if (network.name === "polygontestzkevm") {
   srcNft = "0xf039e0C2Bb17709eCA6E1be4A80aE1705841e196";
-  chids = [12077];
-  dstNfts = ["0x16e1b5517945Ed455CdfE91d2bE50CA293Ebb754"];
+  chids = [280];
+  dstNfts = ["0x574D7A48a3f2900Aeb34B67feCC21eeD400A4230"];
 }
 
 async function main() {

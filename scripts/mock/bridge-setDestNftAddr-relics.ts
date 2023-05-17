@@ -11,16 +11,16 @@ let chids: number[];
 let dstNfts: string[];
 if (network.name === "ankr") {
   srcNft = "0x41ecfB27845912A952A1774971d6F9D95C84c370";
-  chids = [1442];
-  dstNfts = ["0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987"];
+  chids = [280];
+  dstNfts = ["0x226d9DF3Cf487aCd1B384dc180a93B6618C11102"];
 } else if (network.name === "polygontestzkevm") {
   srcNft = "0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987";
-  chids = [80001];
-  dstNfts = ["0x77E825be7701Fe49D4b825304C77B3754f80D54d"];
+  chids = [280];
+  dstNfts = ["0x226d9DF3Cf487aCd1B384dc180a93B6618C11102"];
 } else if (network.name === "polygontest") {
   srcNft = "0x77E825be7701Fe49D4b825304C77B3754f80D54d";
-  chids = [1442];
-  dstNfts = ["0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987"];
+  chids = [280];
+  dstNfts = ["0x226d9DF3Cf487aCd1B384dc180a93B6618C11102"];
 }
 
 async function main() {
