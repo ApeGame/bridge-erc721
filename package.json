@@ -7,8 +7,9 @@
     "verify:bridge-contract": "npx hardhat verify --contract contracts/bridgeNft.sol:BridgeNFT  --network"
   },
   "devDependencies": {
+    "@matterlabs/hardhat-zksync-verify": "^0.1.7",
     "@nomiclabs/hardhat-ethers": "^2.0.5",
-    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@openzeppelin/contracts-ethereum-package": "^3.0.0",
     "@openzeppelin/hardhat-upgrades": "^1.17.0",
@@ -43,8 +44,13 @@
     "web3": "^1.7.3"
   },
   "dependencies": {
+    "@matterlabs/hardhat-zksync-deploy": "^0.6.3",
+    "@matterlabs/hardhat-zksync-solc": "^0.3.17",
+    "@matterlabs/signature-checker": "^1.1.1",
+    "@openzeppelin/contracts": "^4.8.3",
     "@openzeppelin/contracts-upgradeable": "^4.5.2",
     "axios": "^0.27.2",
-    "yarn": "^1.22.18"
+    "yarn": "^1.22.18",
+    "zksync-web3": "^0.14.3"
   }
 }

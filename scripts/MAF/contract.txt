@@ -11,7 +11,8 @@ MAF: ape <=> bsc <=> polygon <=> polygon zkevm
     polygon zkevm: 0x852759BDdd5C9170E24135C76957C50A732f1d5a ()
     ape: 0xf9eba2fe3f8d03d098a439fab2038c737d3dbb94 (celer)
 
-relics: ape => polygon zkevm、 polygon <=> polygon zkevm
+# polygon <=> polygon zkevm
+relics: ape <=> polygon zkevm
     ape:  0xA72b7321517A763Dd879019564406fB5fC39cfd0 (leader)
     polygon:  0xe13c50c3120eEf7731B7223905701D2cA8E68882 (owner to mulsig)
     polygon zkevm: 0x0Ae14d584A55094Eb2f4Ac5B256216649947ca01 ()

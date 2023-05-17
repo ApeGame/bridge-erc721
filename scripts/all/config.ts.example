@@ -1,9 +1,0 @@
-export const ALLCHAIN = {
-  ape: "https://bas.metaapesgame.com/bas_mainnet_full_rpc",
-  edge: "https://edge.metaapesgame.com/edge_mainnet_full_rpc_1",
-  polygon: "https://rpc.ankr.com/polygon",
-  bsc: "https://rpc.ankr.com/bsc",
-  ownerPrivate: "<owner private>",
-  proxyAdminPrivate: "<proxt admin private>",
-  bridgeAdmin: "<bridge admin>",
-};

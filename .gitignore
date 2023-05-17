@@ -12,4 +12,5 @@ network.ts
 secret.ts
 config.ts
 artifacts
+cache-zk
 

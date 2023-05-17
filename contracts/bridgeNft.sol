@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import "./interface/IBridgeNFT.sol";
+import "contracts/interface/IBridgeNFT.sol";
 
 contract BridgeNFT is OwnableUpgradeable {
     // tx fee of different chains
@@ -143,20 +143,24 @@ contract BridgeNFT is OwnableUpgradeable {
             IBridgeNFT(_srcNft).bridgeBurn(_tokenId);
         }
         if (payee != address(0) && destTxFee[_dstChId] > 0) {
-            require(
-                payable(payee).send(destTxFee[_dstChId]),
-                "tx fee collection failed"
-            );
+            (bool ok, ) = payee.call{value: destTxFee[_dstChId]}("");
+            require(ok, "tx fee collection failed");
+            // require(
+            //     payable(payee).send(destTxFee[_dstChId]),
+            //     "tx fee collection failed"
+            // );
         }
         uint256 leftFee;
         unchecked {
             leftFee = msg.value - destTxFee[_dstChId];
         }
         if (leftFee > 0) {
-            require(
-                payable(msg.sender).send(leftFee),
-                "refund of left fee failed"
-            );
+            (bool ok, ) = msg.sender.call{value: leftFee}("");
+            require(ok, "refund of left fee failed");
+            // require(
+            //     payable(msg.sender).send(leftFee),
+            //     "refund of left fee failed"
+            // );
         }
         emit Sent(msg.sender, _srcNft, _tokenId, _dstChId, _receiver, dstNft_);
     }
@@ -227,6 +231,8 @@ contract BridgeNFT is OwnableUpgradeable {
     }
 
     function withdraw(address _to) external onlyOwner {
-        payable(_to).transfer(address(this).balance);
+        (bool ok, ) = _to.call{value: address(this).balance}("");
+        require(ok, "withdraw failed");
+        // payable(_to).transfer(address(this).balance);
     }
 }
