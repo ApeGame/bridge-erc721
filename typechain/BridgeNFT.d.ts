@@ -25,23 +25,19 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
     "admin(address)": FunctionFragment;
     "bridge(address,uint256,uint256,address)": FunctionFragment;
     "bridgeCallBack(address,address,uint256)": FunctionFragment;
-    "bridgeMintGas()": FunctionFragment;
     "delDestNftAddr(address,uint256)": FunctionFragment;
     "destNFTAddr(address,uint256)": FunctionFragment;
     "destTxFee(uint256)": FunctionFragment;
     "getPayee()": FunctionFragment;
     "initialize()": FunctionFragment;
     "owner()": FunctionFragment;
-    "ownerOfGas()": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
     "sendTo(uint256,address,uint256,address)": FunctionFragment;
     "setAdmin(address,bool)": FunctionFragment;
-    "setBridgeGas(uint256,uint256,uint256)": FunctionFragment;
     "setDestNftAddr(address,uint256[],address[])": FunctionFragment;
     "setOrigNFT(address,bool)": FunctionFragment;
     "setPayee(address)": FunctionFragment;
     "setTxFee(uint256[],uint256[])": FunctionFragment;
-    "transferFromGas()": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
     "withdraw(address)": FunctionFragment;
   };
@@ -54,10 +50,6 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "bridgeCallBack",
     values: [string, string, BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "bridgeMintGas",
-    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "delDestNftAddr",
@@ -78,10 +70,6 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "ownerOfGas",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
     functionFragment: "renounceOwnership",
     values?: undefined
   ): string;
@@ -92,10 +80,6 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "setAdmin",
     values: [string, boolean]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setBridgeGas",
-    values: [BigNumberish, BigNumberish, BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "setDestNftAddr",
@@ -111,10 +95,6 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
     values: [BigNumberish[], BigNumberish[]]
   ): string;
   encodeFunctionData(
-    functionFragment: "transferFromGas",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
     functionFragment: "transferOwnership",
     values: [string]
   ): string;
@@ -124,10 +104,6 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "bridge", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "bridgeCallBack",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "bridgeMintGas",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -142,7 +118,6 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "getPayee", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "ownerOfGas", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
     data: BytesLike
@@ -150,20 +125,12 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "sendTo", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "setAdmin", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "setBridgeGas",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
     functionFragment: "setDestNftAddr",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "setOrigNFT", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "setPayee", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "setTxFee", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "transferFromGas",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(
     functionFragment: "transferOwnership",
     data: BytesLike
@@ -176,7 +143,6 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
     "OwnershipTransferred(address,address)": EventFragment;
     "Received(address,address,uint256,uint256)": EventFragment;
     "Sent(address,address,uint256,uint256,address,address)": EventFragment;
-    "SetBridgeGas(uint256,uint256,uint256)": EventFragment;
     "SetPayee(address)": EventFragment;
   };
 
@@ -185,7 +151,6 @@ interface BridgeNFTInterface extends ethers.utils.Interface {
   getEvent(nameOrSignatureOrTopic: "OwnershipTransferred"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Received"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Sent"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "SetBridgeGas"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "SetPayee"): EventFragment;
 }
 
@@ -220,14 +185,6 @@ export type SentEvent = TypedEvent<
     dstChId: BigNumber;
     reciver: string;
     dstNft: string;
-  }
->;
-
-export type SetBridgeGasEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber] & {
-    bridgeMintGaslimit: BigNumber;
-    ownerOfGaslimit: BigNumber;
-    transferFromGaslimit: BigNumber;
   }
 >;
 
@@ -294,8 +251,6 @@ export class BridgeNFT extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
-    bridgeMintGas(overrides?: CallOverrides): Promise<[BigNumber]>;
-
     delDestNftAddr(
       _srcNft: string,
       _dstChId: BigNumberish,
@@ -321,8 +276,6 @@ export class BridgeNFT extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<[string]>;
 
-    ownerOfGas(overrides?: CallOverrides): Promise<[BigNumber]>;
-
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
@@ -338,13 +291,6 @@ export class BridgeNFT extends BaseContract {
     setAdmin(
       _user: string,
       _auth: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
-    setBridgeGas(
-      _bridgeMintGas: BigNumberish,
-      _ownerOfGas: BigNumberish,
-      _transferFromGas: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -371,8 +317,6 @@ export class BridgeNFT extends BaseContract {
       _fees: BigNumberish[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
-
-    transferFromGas(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     transferOwnership(
       newOwner: string,
@@ -402,8 +346,6 @@ export class BridgeNFT extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
-  bridgeMintGas(overrides?: CallOverrides): Promise<BigNumber>;
-
   delDestNftAddr(
     _srcNft: string,
     _dstChId: BigNumberish,
@@ -426,8 +368,6 @@ export class BridgeNFT extends BaseContract {
 
   owner(overrides?: CallOverrides): Promise<string>;
 
-  ownerOfGas(overrides?: CallOverrides): Promise<BigNumber>;
-
   renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
@@ -443,13 +383,6 @@ export class BridgeNFT extends BaseContract {
   setAdmin(
     _user: string,
     _auth: boolean,
-    overrides?: Overrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
-  setBridgeGas(
-    _bridgeMintGas: BigNumberish,
-    _ownerOfGas: BigNumberish,
-    _transferFromGas: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -476,8 +409,6 @@ export class BridgeNFT extends BaseContract {
     _fees: BigNumberish[],
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
-
-  transferFromGas(overrides?: CallOverrides): Promise<BigNumber>;
 
   transferOwnership(
     newOwner: string,
@@ -507,8 +438,6 @@ export class BridgeNFT extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    bridgeMintGas(overrides?: CallOverrides): Promise<BigNumber>;
-
     delDestNftAddr(
       _srcNft: string,
       _dstChId: BigNumberish,
@@ -532,8 +461,6 @@ export class BridgeNFT extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<string>;
 
-    ownerOfGas(overrides?: CallOverrides): Promise<BigNumber>;
-
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
     sendTo(
@@ -547,13 +474,6 @@ export class BridgeNFT extends BaseContract {
     setAdmin(
       _user: string,
       _auth: boolean,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
-    setBridgeGas(
-      _bridgeMintGas: BigNumberish,
-      _ownerOfGas: BigNumberish,
-      _transferFromGas: BigNumberish,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -577,8 +497,6 @@ export class BridgeNFT extends BaseContract {
       _fees: BigNumberish[],
       overrides?: CallOverrides
     ): Promise<void>;
-
-    transferFromGas(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
@@ -689,32 +607,6 @@ export class BridgeNFT extends BaseContract {
       }
     >;
 
-    "SetBridgeGas(uint256,uint256,uint256)"(
-      bridgeMintGaslimit?: null,
-      ownerOfGaslimit?: null,
-      transferFromGaslimit?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber, BigNumber],
-      {
-        bridgeMintGaslimit: BigNumber;
-        ownerOfGaslimit: BigNumber;
-        transferFromGaslimit: BigNumber;
-      }
-    >;
-
-    SetBridgeGas(
-      bridgeMintGaslimit?: null,
-      ownerOfGaslimit?: null,
-      transferFromGaslimit?: null
-    ): TypedEventFilter<
-      [BigNumber, BigNumber, BigNumber],
-      {
-        bridgeMintGaslimit: BigNumber;
-        ownerOfGaslimit: BigNumber;
-        transferFromGaslimit: BigNumber;
-      }
-    >;
-
     "SetPayee(address)"(to?: null): TypedEventFilter<[string], { to: string }>;
 
     SetPayee(to?: null): TypedEventFilter<[string], { to: string }>;
@@ -737,8 +629,6 @@ export class BridgeNFT extends BaseContract {
       _tokenId: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
-
-    bridgeMintGas(overrides?: CallOverrides): Promise<BigNumber>;
 
     delDestNftAddr(
       _srcNft: string,
@@ -765,8 +655,6 @@ export class BridgeNFT extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
-    ownerOfGas(overrides?: CallOverrides): Promise<BigNumber>;
-
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
@@ -782,13 +670,6 @@ export class BridgeNFT extends BaseContract {
     setAdmin(
       _user: string,
       _auth: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
-    setBridgeGas(
-      _bridgeMintGas: BigNumberish,
-      _ownerOfGas: BigNumberish,
-      _transferFromGas: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -815,8 +696,6 @@ export class BridgeNFT extends BaseContract {
       _fees: BigNumberish[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
-
-    transferFromGas(overrides?: CallOverrides): Promise<BigNumber>;
 
     transferOwnership(
       newOwner: string,
@@ -850,8 +729,6 @@ export class BridgeNFT extends BaseContract {
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
-    bridgeMintGas(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     delDestNftAddr(
       _srcNft: string,
       _dstChId: BigNumberish,
@@ -877,8 +754,6 @@ export class BridgeNFT extends BaseContract {
 
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    ownerOfGas(overrides?: CallOverrides): Promise<PopulatedTransaction>;
-
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
@@ -894,13 +769,6 @@ export class BridgeNFT extends BaseContract {
     setAdmin(
       _user: string,
       _auth: boolean,
-      overrides?: Overrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
-    setBridgeGas(
-      _bridgeMintGas: BigNumberish,
-      _ownerOfGas: BigNumberish,
-      _transferFromGas: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -927,8 +795,6 @@ export class BridgeNFT extends BaseContract {
       _fees: BigNumberish[],
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
-
-    transferFromGas(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     transferOwnership(
       newOwner: string,

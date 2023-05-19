@@ -13,9 +13,6 @@ contract BridgeNFT is OwnableUpgradeable {
     mapping(address => bool) origNFT;
     mapping(address => bool) public admin;
     address payee;
-    uint256 public bridgeMintGas;
-    uint256 public ownerOfGas;
-    uint256 public transferFromGas;
 
     event SetPayee(address to);
     event Sent(
@@ -28,11 +25,6 @@ contract BridgeNFT is OwnableUpgradeable {
     );
     event Callback(address sender, address srcNft, uint256 tokenId);
     event Received(address receiver, address nft, uint256 id, uint256 srcChId);
-    event SetBridgeGas(
-        uint256 bridgeMintGaslimit,
-        uint256 ownerOfGaslimit,
-        uint256 transferFromGaslimit
-    );
 
     modifier onlyAdmin() {
         require(
@@ -59,19 +51,6 @@ contract BridgeNFT is OwnableUpgradeable {
 
     function getPayee() public view onlyAdmin returns (address) {
         return payee;
-    }
-
-    function setBridgeGas(
-        uint256 _bridgeMintGas,
-        uint256 _ownerOfGas,
-        uint256 _transferFromGas
-    ) external onlyAdmin {
-        assembly {
-            sstore(bridgeMintGas.slot, _bridgeMintGas)
-            sstore(ownerOfGas.slot, _ownerOfGas)
-            sstore(transferFromGas.slot, _transferFromGas)
-        }
-        emit SetBridgeGas(_bridgeMintGas, _ownerOfGas, _transferFromGas);
     }
 
     function setDestNftAddr(
@@ -172,25 +151,16 @@ contract BridgeNFT is OwnableUpgradeable {
     ) external onlyAdmin {
         if (origNFT[_srcNft]) {
             require(
-                IBridgeNFT(_srcNft).ownerOf{gas: ownerOfGas}(_tokenId) ==
-                    address(this),
+                IBridgeNFT(_srcNft).ownerOf(_tokenId) == address(this),
                 "tokenid owner is not bridge"
             );
-            IBridgeNFT(_srcNft).transferFrom{gas: transferFromGas}(
-                address(this),
-                _sender,
-                _tokenId
-            );
+            IBridgeNFT(_srcNft).transferFrom(address(this), _sender, _tokenId);
             require(
-                IBridgeNFT(_srcNft).ownerOf{gas: ownerOfGas}(_tokenId) ==
-                    _sender,
+                IBridgeNFT(_srcNft).ownerOf(_tokenId) == _sender,
                 "callback NFT failed"
             );
         } else {
-            IBridgeNFT(_srcNft).bridgeMint{gas: bridgeMintGas}(
-                _sender,
-                _tokenId
-            );
+            IBridgeNFT(_srcNft).bridgeMint(_sender, _tokenId);
         }
         emit Callback(_sender, _srcNft, _tokenId);
     }
@@ -202,21 +172,17 @@ contract BridgeNFT is OwnableUpgradeable {
         address _receiver
     ) external onlyAdmin {
         if (origNFT[_dstNft]) {
-            IBridgeNFT(_dstNft).transferFrom{gas: transferFromGas}(
+            IBridgeNFT(_dstNft).transferFrom(
                 address(this),
                 _receiver,
                 _tokenId
             );
             require(
-                IBridgeNFT(_dstNft).ownerOf{gas: ownerOfGas}(_tokenId) ==
-                    _receiver,
+                IBridgeNFT(_dstNft).ownerOf(_tokenId) == _receiver,
                 "transfer NFT failed"
             );
         } else {
-            IBridgeNFT(_dstNft).bridgeMint{gas: bridgeMintGas}(
-                _receiver,
-                _tokenId
-            );
+            IBridgeNFT(_dstNft).bridgeMint(_receiver, _tokenId);
         }
         emit Received(_receiver, _dstNft, _tokenId, _srcChid);
     }

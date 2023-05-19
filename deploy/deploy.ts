@@ -41,8 +41,8 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   const bridge = await attachTo.attach(proxtContract.address);
 
   // set bridge gas
-  await bridge.setBridgeGas(300000, 50000, 200000);
-  console.log("bridge setBridgeGas completed");
+  // await bridge.setBridgeGas(3000000, 50000, 200000);
+  // console.log("bridge setBridgeGas completed");
 
   // set admin
   await bridge.setAdmin(admin, true);

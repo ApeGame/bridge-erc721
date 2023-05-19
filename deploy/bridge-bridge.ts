@@ -7,7 +7,7 @@ import { CONTRACTS } from "../config";
 
 // An example of a deploy script that will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-  const { proxyAdmin, ownerPrivate } = CONTRACTS[hre.network.name];
+  const { bridge, proxyAdmin, ownerPrivate } = CONTRACTS[hre.network.name];
 
   // // Initialize the wallet.
   const wallet = new Wallet(ownerPrivate);
@@ -22,9 +22,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     deployer.zkWallet,
     deployer.deploymentType
   );
-  const bridge = await attachTo.attach(
-    "0x1308C964ae66B70f86DF57E885e78E8678B9E09D"
-  );
+  const Bridge = await attachTo.attach(bridge);
 
   // 97 bsc test
   // 12077 coq
@@ -33,7 +31,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   // 280 zksync test
 
   // MAF
-  await bridge.setDestNftAddr(
+  await Bridge.setDestNftAddr(
     "0x4d11C4B19FC2C93D2aDecb7D1C7362484B35a566",
     [97, 12077, 80001, 1442],
     [
@@ -46,7 +44,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   console.log("MAF setDestNftAddr completed");
 
   // MAR
-  await bridge.setDestNftAddr(
+  await Bridge.setDestNftAddr(
     "0x226d9DF3Cf487aCd1B384dc180a93B6618C11102",
     [12077, 80001, 1442],
     [
@@ -58,7 +56,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   console.log("MAR setDestNftAddr completed");
 
   // not bridge MAF
-  await bridge.setDestNftAddr(
+  await Bridge.setDestNftAddr(
     "0x574D7A48a3f2900Aeb34B67feCC21eeD400A4230",
     [12077, 1442],
     [

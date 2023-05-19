@@ -7,7 +7,7 @@ import { CONTRACTS } from "../config";
 
 // An example of a deploy script that will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
-  const { proxyAdmin, ownerPrivate } = CONTRACTS[hre.network.name];
+  const { bridge, ownerPrivate } = CONTRACTS[hre.network.name];
 
   // // Initialize the wallet.
   const wallet = new Wallet(ownerPrivate);
@@ -22,19 +22,14 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     deployer.zkWallet,
     deployer.deploymentType
   );
-  const bridge = await attachTo.attach(
-    "0x1308C964ae66B70f86DF57E885e78E8678B9E09D"
-  );
-
-  //   await bridge.setAdmin("0x5fd8b97F8D8DA84813F583C42d40D1e5A4DA9A17", true);
+  const Bridge = await attachTo.attach(bridge);
 
   //   console.log("set admin completed");
-  await bridge.sendTo(
+  await Bridge.sendTo(
     56,
-    "0xA050dad9CfFAD1A422Dc0CD5aeD7b0d4D847259D",
-    121,
+    "0x574D7A48a3f2900Aeb34B67feCC21eeD400A4230",
+    1,
     "0x20cD8eB93c50BDAc35d6A526f499c0104958e3F6"
   );
   console.log("sendTo completed");
-  // 0x256bA56E49D8Bb1690B870522B6DEd9636c523fC
 }
