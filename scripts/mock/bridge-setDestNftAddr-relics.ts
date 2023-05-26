@@ -15,8 +15,11 @@ if (network.name === "ankr") {
   dstNfts = ["0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987"];
 } else if (network.name === "polygontestzkevm") {
   srcNft = "0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987";
-  chids = [80001];
-  dstNfts = ["0x77E825be7701Fe49D4b825304C77B3754f80D54d"];
+  chids = [80001, 12077];
+  dstNfts = [
+    "0x77E825be7701Fe49D4b825304C77B3754f80D54d",
+    "0x41ecfB27845912A952A1774971d6F9D95C84c370",
+  ];
 } else if (network.name === "polygontest") {
   srcNft = "0x77E825be7701Fe49D4b825304C77B3754f80D54d";
   chids = [1442];
