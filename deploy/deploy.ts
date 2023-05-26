@@ -5,7 +5,7 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 import { CONTRACTS } from "../config";
 
-const admin = "0xdab136d1aacef7417d32ae6b8b13651dba4dd580";
+const admin = "0x5767A8EdE4d14595162920C4019a5e79D685FF67";
 // An example of a deploy script that will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
   const { proxyAdmin, ownerPrivate } = CONTRACTS[hre.network.name];
