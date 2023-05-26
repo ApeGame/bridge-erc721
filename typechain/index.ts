@@ -10,9 +10,11 @@ export type { IERC721Upgradeable } from "./IERC721Upgradeable";
 export type { ContextUpgradeable } from "./ContextUpgradeable";
 export type { ERC165Upgradeable } from "./ERC165Upgradeable";
 export type { IERC165Upgradeable } from "./IERC165Upgradeable";
-export type { IERC1271 } from "./IERC1271";
 export type { BridgeNFT } from "./BridgeNFT";
+export type { Erc721Proxy } from "./Erc721Proxy";
 export type { IBridgeNFT } from "./IBridgeNFT";
+export type { IErc721Proxy } from "./IErc721Proxy";
+export type { ILaunchpadNFT } from "./ILaunchpadNFT";
 export type { Configurable } from "./Configurable";
 export type { IERC20 } from "./IERC20";
 export type { IERC721 } from "./IERC721";
@@ -21,6 +23,9 @@ export type { BaseAdminUpgradeabilityProxy } from "./BaseAdminUpgradeabilityProx
 export type { BaseUpgradeabilityProxy } from "./BaseUpgradeabilityProxy";
 export type { Proxy } from "./Proxy";
 export type { UpgradeabilityProxy } from "./UpgradeabilityProxy";
+export type { Verify } from "./Verify";
+export type { Metadata } from "./Metadata";
+export type { MetadataV2 } from "./MetadataV2";
 export type { MyNFT } from "./MyNFT";
 
 export { OwnableUpgradeable__factory } from "./factories/OwnableUpgradeable__factory";
@@ -32,9 +37,11 @@ export { IERC721Upgradeable__factory } from "./factories/IERC721Upgradeable__fac
 export { ContextUpgradeable__factory } from "./factories/ContextUpgradeable__factory";
 export { ERC165Upgradeable__factory } from "./factories/ERC165Upgradeable__factory";
 export { IERC165Upgradeable__factory } from "./factories/IERC165Upgradeable__factory";
-export { IERC1271__factory } from "./factories/IERC1271__factory";
 export { BridgeNFT__factory } from "./factories/BridgeNFT__factory";
+export { Erc721Proxy__factory } from "./factories/Erc721Proxy__factory";
 export { IBridgeNFT__factory } from "./factories/IBridgeNFT__factory";
+export { IErc721Proxy__factory } from "./factories/IErc721Proxy__factory";
+export { ILaunchpadNFT__factory } from "./factories/ILaunchpadNFT__factory";
 export { Configurable__factory } from "./factories/Configurable__factory";
 export { IERC20__factory } from "./factories/IERC20__factory";
 export { IERC721__factory } from "./factories/IERC721__factory";
@@ -43,4 +50,7 @@ export { BaseAdminUpgradeabilityProxy__factory } from "./factories/BaseAdminUpgr
 export { BaseUpgradeabilityProxy__factory } from "./factories/BaseUpgradeabilityProxy__factory";
 export { Proxy__factory } from "./factories/Proxy__factory";
 export { UpgradeabilityProxy__factory } from "./factories/UpgradeabilityProxy__factory";
+export { Verify__factory } from "./factories/Verify__factory";
+export { Metadata__factory } from "./factories/Metadata__factory";
+export { MetadataV2__factory } from "./factories/MetadataV2__factory";
 export { MyNFT__factory } from "./factories/MyNFT__factory";
