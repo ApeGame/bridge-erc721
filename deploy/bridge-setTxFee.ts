@@ -22,6 +22,15 @@ export default async function (hre: HardhatRuntimeEnvironment) {
         ethers.utils.parseEther("0.001"),
       ];
       break;
+    case "zkSyncMainnet":
+      chids = [16350, 137, 56, 1101];
+      txfees = [
+        ethers.utils.parseEther("0.0001"),
+        ethers.utils.parseEther("0.0001"),
+        ethers.utils.parseEther("0.0005"),
+        ethers.utils.parseEther("0.001"),
+      ];
+      break;
   }
 
   // // Initialize the wallet.

@@ -49,25 +49,17 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC165Upgradeable__factory>;
     getContractFactory(
+      name: "IERC1271",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC1271__factory>;
+    getContractFactory(
       name: "BridgeNFT",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.BridgeNFT__factory>;
     getContractFactory(
-      name: "Erc721Proxy",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Erc721Proxy__factory>;
-    getContractFactory(
       name: "IBridgeNFT",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IBridgeNFT__factory>;
-    getContractFactory(
-      name: "IErc721Proxy",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IErc721Proxy__factory>;
-    getContractFactory(
-      name: "ILaunchpadNFT",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.ILaunchpadNFT__factory>;
     getContractFactory(
       name: "Configurable",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -100,18 +92,6 @@ declare module "hardhat/types/runtime" {
       name: "UpgradeabilityProxy",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.UpgradeabilityProxy__factory>;
-    getContractFactory(
-      name: "Verify",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Verify__factory>;
-    getContractFactory(
-      name: "Metadata",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Metadata__factory>;
-    getContractFactory(
-      name: "MetadataV2",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MetadataV2__factory>;
     getContractFactory(
       name: "MyNFT",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -163,30 +143,20 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IERC165Upgradeable>;
     getContractAt(
+      name: "IERC1271",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC1271>;
+    getContractAt(
       name: "BridgeNFT",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.BridgeNFT>;
     getContractAt(
-      name: "Erc721Proxy",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.Erc721Proxy>;
-    getContractAt(
       name: "IBridgeNFT",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IBridgeNFT>;
-    getContractAt(
-      name: "IErc721Proxy",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IErc721Proxy>;
-    getContractAt(
-      name: "ILaunchpadNFT",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.ILaunchpadNFT>;
     getContractAt(
       name: "Configurable",
       address: string,
@@ -227,21 +197,6 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.UpgradeabilityProxy>;
-    getContractAt(
-      name: "Verify",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.Verify>;
-    getContractAt(
-      name: "Metadata",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.Metadata>;
-    getContractAt(
-      name: "MetadataV2",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MetadataV2>;
     getContractAt(
       name: "MyNFT",
       address: string,

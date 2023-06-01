@@ -7,12 +7,12 @@ import { CONTRACTS } from "../config";
 export default async function (hre: HardhatRuntimeEnvironment) {
   const { ownerPrivate } = CONTRACTS[hre.network.name];
 
-  const zkSyncProvider = new Provider("https://testnet.era.zksync.dev/");
-  const ethereumProvider = new Provider("https://rpc.ankr.com/eth_goerli");
+  const zkSyncProvider = new Provider("https://mainnet.era.zksync.io");
+  const ethereumProvider = new Provider("https://rpc.ankr.com/eth");
   const wallet = new Wallet(ownerPrivate, zkSyncProvider, ethereumProvider);
 
-  const MOCK_ADDRESS = "0x113d7546f66555C8124a71a2886Ac855272e4ab1";
-  const amount = "3000000000000000000";
+  const MOCK_ADDRESS = "0x1Ed81E03D7DDB67A21755D02ED2f24da71C27C55";
+  const amount = "1000000000000000000";
   // const txHandle = await wallet.approveERC20(MOCK_ADDRESS, amount, {});
   // await txHandle.wait();
 
