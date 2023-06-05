@@ -42,3 +42,7 @@ owner:
     polygon zkevm:
         0x463c07eF14cFb85cf79415245AAb68ad5AAaFa9d (owner)
         0x43F970Fb4256763b3C03bED26Df01eBDA6F488A5 (proxy admin)
+
+    zksync:
+        0x21De102994Bc986e02A795E0f39e5275817E7eF3 (owner)
+        0x43F970Fb4256763b3C03bED26Df01eBDA6F488A5 (proxy admin)
