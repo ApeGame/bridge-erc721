@@ -25,7 +25,18 @@ const config: HardhatUserConfig = {
     apiKey: {
       polygonMumbai: "AETMWJBB9WTFK95EE98W8D3JTBXWGX83SZ",
       polygon: "AETMWJBB9WTFK95EE98W8D3JTBXWGX83SZ",
+      apemain: "AETMWJBB9WTFK95EE98W8D3JTBXWGX83SZ",
     },
+    customChains: [
+      {
+        network: "apemain",
+        chainId: 16350,
+        urls: {
+          apiURL: "https://explorer.bas.metaapesgame.com/api",
+          browserURL: "https://explorer.bas.metaapesgame.com/",
+        },
+      },
+    ],
   },
 };
 
