@@ -4,7 +4,7 @@ import { ethers, network } from "hardhat";
 // eslint-disable-next-line node/no-missing-import
 import { CONTRACTS } from "../../config";
 
-const bridge: string = "";
+const { bridge } = CONTRACTS[network.name];
 const lineamainChainID = 59144;
 
 let chids: number[];
@@ -29,15 +29,15 @@ switch (network.name) {
 
     srcNftMAF = "0x852759BDdd5C9170E24135C76957C50A732f1d5a";
     chidsMAF = [lineamainChainID];
-    dstNftsMAF = [""];
+    dstNftsMAF = ["0xcb11b3A77F943337D920232eE13b1CEDb6C99b72"];
 
     srcNftNoBridgeMAF = "0x6CF6384D05EC0c430af3aC46135D4574cCeeF97d";
     chidsNoBridgeMAF = [lineamainChainID];
-    dstNftsNoBridgeMAF = [""];
+    dstNftsNoBridgeMAF = ["0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2"];
 
     srcNftRelics = "0x0Ae14d584A55094Eb2f4Ac5B256216649947ca01";
     chidsRelics = [lineamainChainID];
-    dstNftsRelics = [""];
+    dstNftsRelics = ["0x4960edA41a25C6C0feDbe8798940cB4585E36311"];
 
     break;
   case "zkSyncMainnet":
@@ -46,15 +46,15 @@ switch (network.name) {
 
     srcNftMAF = "0x78D0c876c658682a3D117a0298aB9Ed3F5D09d29";
     chidsMAF = [lineamainChainID];
-    dstNftsMAF = [""];
+    dstNftsMAF = ["0xcb11b3A77F943337D920232eE13b1CEDb6C99b72"];
 
     srcNftNoBridgeMAF = "0xd522d1ff2842C0446080E80d12C6a18a370beF0b";
     chidsNoBridgeMAF = [lineamainChainID];
-    dstNftsNoBridgeMAF = [""];
+    dstNftsNoBridgeMAF = ["0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2"];
 
     srcNftRelics = "0x4f14D5CcC7D9227bd9F8c373128345fEd4936C6f";
     chidsRelics = [lineamainChainID];
-    dstNftsRelics = [""];
+    dstNftsRelics = ["0x4960edA41a25C6C0feDbe8798940cB4585E36311"];
     break;
 }
 

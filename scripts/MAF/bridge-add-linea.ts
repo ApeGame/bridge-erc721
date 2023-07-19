@@ -40,7 +40,7 @@ async function main() {
 
   // MAF
   tx = await bridgeProxy.setDestNftAddr(
-    "",
+    "0xcb11b3A77F943337D920232eE13b1CEDb6C99b72",
     [
       apemainChainID,
       bscmainChainID,
@@ -61,7 +61,7 @@ async function main() {
 
   // relics
   tx = await bridgeProxy.setDestNftAddr(
-    "",
+    "0x4960edA41a25C6C0feDbe8798940cB4585E36311",
     [
       apemainChainID,
       polygonmainChainID,
@@ -80,7 +80,7 @@ async function main() {
 
   // no bridge MAF
   tx = await bridgeProxy.setDestNftAddr(
-    "",
+    "0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2",
     [
       apemainChainID,
       polygonmainChainID,
