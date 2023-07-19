@@ -13,7 +13,7 @@ const zkSyncmainnetChainID = 324;
 const polygonmainzkevmChainID = 1101;
 
 async function main() {
-  if (network.name !== "lineamain") {
+  if (network.name !== "lineamainnet") {
     return;
   }
 
