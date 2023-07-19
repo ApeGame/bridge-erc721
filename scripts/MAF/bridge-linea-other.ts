@@ -60,6 +60,15 @@ switch (network.name) {
 
 async function main() {
   const bridgeProxy = await ethers.getContractAt("BridgeNFT", bridge);
+
+  if (network.name === "polygontestzkevm") {
+    // Set Bridge Operator as Payee
+    const tx = await bridgeProxy.setPayee(
+      "0x5767A8EdE4d14595162920C4019a5e79D685FF67"
+    );
+    await tx.wait();
+  }
+
   if (chids.length > 0 && chids.length === txfees.length) {
     const tx = await bridgeProxy.setTxFee(chids, txfees);
     await tx.wait();
