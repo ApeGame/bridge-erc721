@@ -10,6 +10,8 @@ import { CONTRACTS } from "../../config";
 
 const { owner, proxyAdmin } = CONTRACTS[network.name];
 
+const payee: string = "0x5767A8EdE4d14595162920C4019a5e79D685FF67";
+
 async function main() {
   const nonce = await ethers.provider.getTransactionCount(owner);
   // step 1: deploy bridgeNFT
@@ -31,14 +33,22 @@ async function main() {
   console.log(`Bridge address: ${bridgeProxy.address}`);
 
   const bridge = await ethers.getContractAt("BridgeNFT", bridgeProxy.address);
-  const tx = await bridge.setBridgeGas(300000, 50000, 200000, {
+  let tx = await bridge.setBridgeGas(300000, 50000, 200000, {
     nonce: nonce + 2,
   });
   await tx.wait();
-  console.log(`setBridgeGas complete`);
+  console.log(`setBridgeGas completed`);
+
+
+  tx = await bridge.setPayee(payee, {
+    nonce: nonce + 3,
+  });
+  await tx.wait();
+  console.log(`setPayee completed`);
+
 
   // sleep 10s
-  await Sleep(10000);
+  await Sleep(3000);
 
   if (network.name === "bscmainnet") {
     console.log(
@@ -81,7 +91,17 @@ async function main() {
         "QADPA8U7I9EU4K1I672Y9QHRAY7PFJ5WAX"
       )}`
     );
-  }
+  } else if (network.name === "lineamain") {
+    console.log(
+      `bridgeNFT logic contract(${
+        factory.address
+      }) verify & push contract, guid: ${await VerifyContractBlockScout(
+        factory.address,
+        "contracts/bridgeNft.sol:BridgeNFT",
+        "",
+        "https://explorer.linea.build/api"
+      )}`
+    );
 }
 
 main().catch((error) => {

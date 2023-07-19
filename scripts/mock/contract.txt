@@ -3,7 +3,8 @@ bridge:
     bsc-test: 0xD0C2daE054821DCEae44e49F257aB49e6Ffb5F96
     coq-test: 0xc09d350573715CD441791603c4F01a59Dd832699
     polygon-test-zkevm: 0xc4CdC62E2D5c57A2a06aF9D5332D4bc18De1B553
-    zksync-test: 0x72C4DC812058298080b9DcBBd3069D26f88703dd
+    zksync-test: 0x6680FC6932f2a1aDccF0f6d3Ae2EBEfFD2A56757
+    linea-test: 0xEd710F57B7463E5dAC2657B82CEEC1029715e8dE
 
 MAF:
     polygon-test: 0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c
@@ -11,14 +12,17 @@ MAF:
     bsc-test: 0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288
     polygon-test-zkevm: 0xaC8C25a8D2e3d26795A43Cee3315B214D4a6F2Fa
     zksync-test: 0x4d11C4B19FC2C93D2aDecb7D1C7362484B35a566
+    linea-test: 0x84868afcC4Ba758a4ae2aca141D2fF0ECD8C5fac
 
-relics:  coq <=> polygon zkevm <=> zksync <=> polygon
+relics:  coq <=> polygon zkevm <=> zksync <=> polygon  <=> linea
     coq-test: 0x41ecfB27845912A952A1774971d6F9D95C84c370
     polygon-test: 0x77E825be7701Fe49D4b825304C77B3754f80D54d
     polygon-test-zkevm: 0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987 (new)
     zksync-test: 0x226d9DF3Cf487aCd1B384dc180a93B6618C11102
+    linea-test: 0x6dce96014708eEC5fa697770841be06BFCc5A3ef
 
-no bridge MAF: coq <=> polygon zkevm <=> zksync
+no bridge MAF: coq <=> polygon zkevm <=> zksync <=> linea
     coq-test: 0x16e1b5517945Ed455CdfE91d2bE50CA293Ebb754 (new)
     polygon-test-zkevm: 0xf039e0C2Bb17709eCA6E1be4A80aE1705841e196 (new)
     zksync-test: 0x574D7A48a3f2900Aeb34B67feCC21eeD400A4230
+    linea-test: 0xBedb5e825989B8ef4B195bfC3A9196eEC35Beae4

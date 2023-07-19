@@ -152,6 +152,7 @@ function isExists(contract: string): Promise<boolean> {
         },
       })
       .then(function (respdata) {
+        // console.log(respdata.data);
         if (respdata.data.message === "OK") {
           resolve(true);
         } else {
