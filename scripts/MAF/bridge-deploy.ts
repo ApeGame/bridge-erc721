@@ -99,18 +99,19 @@ async function main() {
     console.log(
       `bridgeNFT logic contract(${
         factory.address
-      }) verify & push contract, guid: ${await VerifyContractBlockScout(
+      }) verify & push contract, guid: ${await VerifyContractEthScan(
         factory.address,
         "contracts/bridgeNft.sol:BridgeNFT",
         "",
-        "https://explorer.linea.build/api"
+        "https://api.lineascan.build/api",
+        "HCHMNPUTKD1AJYSNJXKRPADCN6B9E7BSWE"
       )}`
     );
 
     console.log(
       `proxy contract(${
         bridge.address
-      }) verify & push contract, guid: ${await VerifyContractBlockScout(
+      }) verify & push contract, guid: ${await VerifyContractEthScan(
         bridge.address,
         "contracts/lib/Upgrade.sol:AdminUpgradeabilityProxy",
         _bridgeProxy.interface
@@ -120,7 +121,8 @@ async function main() {
             _factory.interface.encodeFunctionData("initialize"),
           ])
           .slice(2),
-        "https://explorer.linea.build/api"
+        "https://api.lineascan.build/api",
+        "HCHMNPUTKD1AJYSNJXKRPADCN6B9E7BSWE"
       )}`
     );
   }
