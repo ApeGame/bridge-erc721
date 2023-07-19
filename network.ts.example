@@ -4,25 +4,14 @@ import { CONTRACTS } from "./config";
 
 export const networks: NetworksUserConfig = {
   hardhat: {},
-  bscmainnet: {
-    url: "https://rpc.ankr.com/bsc",
-    chainId: 56,
-    accounts: [CONTRACTS.bscmainnet.ownerPrivate],
+  polygonmainnetzkevm: {
+    url: "https://zkevm-rpc.com",
+    chainId: 1101,
+    accounts: [CONTRACTS.polygonmainnetzkevm.ownerPrivate],
   },
-  basmainnet: {
-    url: "https://bas.metaapesgame.com/bas_mainnet_full_rpc",
-    chainId: 16350,
-    accounts: [CONTRACTS.basmainnet.ownerPrivate],
-  },
-  polygonmainnet: {
-    url: "https://rpc.ankr.com/polygon",
-    chainId: 137,
-    accounts: [CONTRACTS.polygonmainnet.ownerPrivate],
-  },
-  edgemainnet: {
-    url: "https://edge.metaapesgame.com/edge_mainnet_full_rpc_1",
-    chainId: 100,
-    gasPrice: 0,
-    accounts: [CONTRACTS.edgemainnet.ownerPrivate],
+  zkSyncMainnet: {
+    url: "https://mainnet.era.zksync.io",
+    chainId: 324,
+    accounts: [CONTRACTS.zkSyncMainnet.ownerPrivate],
   },
 };

@@ -1,10 +1,7 @@
 import { ethers, network } from "hardhat";
-import {
-  VerifyContractEthScan,
-  VerifyProxyEthScan,
-} from "../common-ethscan";
+import { VerifyContractEthScan, VerifyProxyEthScan } from "../common-ethscan";
 import { VerifyContractBlockScout } from "../common-blockscout";
-import { Sleep } from "../common"
+import { Sleep } from "../common";
 // eslint-disable-next-line node/no-missing-import
 import { CONTRACTS } from "../../config";
 
@@ -32,6 +29,7 @@ async function main() {
   await bridgeProxy.deployed();
   console.log(`Bridge address: ${bridgeProxy.address}`);
 
+  // set bridge gas
   const bridge = await ethers.getContractAt("BridgeNFT", bridgeProxy.address);
   let tx = await bridge.setBridgeGas(300000, 50000, 200000, {
     nonce: nonce + 2,
@@ -39,17 +37,23 @@ async function main() {
   await tx.wait();
   console.log(`setBridgeGas completed`);
 
-
+  // set payee
   tx = await bridge.setPayee(payee, {
     nonce: nonce + 3,
   });
   await tx.wait();
   console.log(`setPayee completed`);
 
+  // set admin
+  tx = await bridge.setAdmin(payee, true, {
+    nonce: nonce + 4,
+  });
+  await tx.wait();
+  console.log(`setAdmin completed`);
 
   // sleep 10s
   await Sleep(3000);
-
+  // verify contract
   if (network.name === "bscmainnet") {
     console.log(
       `bridgeNFT logic contract(${
@@ -102,6 +106,24 @@ async function main() {
         "https://explorer.linea.build/api"
       )}`
     );
+
+    console.log(
+      `proxy contract(${
+        bridge.address
+      }) verify & push contract, guid: ${await VerifyContractBlockScout(
+        bridge.address,
+        "contracts/lib/Upgrade.sol:AdminUpgradeabilityProxy",
+        _bridgeProxy.interface
+          .encodeDeploy([
+            factory.address,
+            proxyAdmin,
+            _factory.interface.encodeFunctionData("initialize"),
+          ])
+          .slice(2),
+        "https://explorer.linea.build/api"
+      )}`
+    );
+  }
 }
 
 main().catch((error) => {

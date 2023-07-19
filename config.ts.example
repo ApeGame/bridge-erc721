@@ -1,30 +1,18 @@
 export const CONTRACTS: { [network: string]: any } = {
-  bscmainnet: {
-    proxyAdmin: "0x21de102994bc986e02a795e0f39e5275817e7ef3",
-    proxyAdminPrivate:"",
-    owner: "0x43f970fb4256763b3c03bed26df01ebda6f488a5",
-    ownerPrivate:"",
-    bridge: "0x52dc819F5b7e23d3493b785f8a10e998144E6173",
+  polygonmainnetzkevm: {
+    verifyUrl: "https://api-zkevm.polygonscan.com/api",
+    verifyApiKey: "QADPA8U7I9EU4K1I672Y9QHRAY7PFJ5WAX",
+    proxyAdmin: "0x66ACaf662822dbFd66A5240788ec528b743885e6",
+    proxyAdminPrivate: "0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1",
+    owner: "0x6A82Fa5Cf82Ef724d1F1955fECc27DDd0758132E",
+    ownerPrivate: "",
+    bridge: "0xA84E60c92B2731868a51850560767B59DAa5feB0",
   },
-  apemainnet: {
-    proxyAdmin: "0x21de102994bc986e02a795e0f39e5275817e7ef3",
-    proxyAdminPrivate:"",
-    owner: "0x43f970fb4256763b3c03bed26df01ebda6f488a5",
-    ownerPrivate:"",
-    bridge: "0x6Be6D75f422FBcb42C90420621115718E7101724",
-  },
-  polygonmainnet: {
-    proxyAdmin: "0x21de102994bc986e02a795e0f39e5275817e7ef3",
-    proxyAdminPrivate:"",
-    owner: "0x43f970fb4256763b3c03bed26df01ebda6f488a5",
-    ownerPrivate:"",
-    bridge: "0xc05DB3d68E57281eea7b9d956d5Ed195a8B99eD7",
-  },
-  edgemainnet: {
-    proxyAdmin: "0x21de102994bc986e02a795e0f39e5275817e7ef3",
-    proxyAdminPrivate:"",
-    owner: "0x43f970fb4256763b3c03bed26df01ebda6f488a5",
-    ownerPrivate:"",
-    bridge: "0xb8180C5F329944cede412072Ff369eFe51501b64",
+  zkSyncMainnet: {
+    proxyAdmin: "0x43F970Fb4256763b3C03bED26Df01eBDA6F488A5",
+    proxyAdminPrivate: "0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1",
+    owner: "",
+    ownerPrivate: "",
+    bridge: "0x6a05464cb3D7b20ad3e4203C2B181F1B50f62b77",
   },
 };
