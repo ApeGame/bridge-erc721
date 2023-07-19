@@ -25,7 +25,7 @@ let dstNftsRelics: string[];
 switch (network.name) {
   case "polygontestzkevm":
     chids = [lineamainChainID];
-    txfees = [ethers.utils.parseEther("0.0004")];
+    txfees = [ethers.utils.parseEther("0.0005")];
 
     srcNftMAF = "0x852759BDdd5C9170E24135C76957C50A732f1d5a";
     chidsMAF = [lineamainChainID];
@@ -42,7 +42,7 @@ switch (network.name) {
     break;
   case "zkSyncMainnet":
     chids = [lineamainChainID];
-    txfees = [ethers.utils.parseEther("0.0004")];
+    txfees = [ethers.utils.parseEther("0.0005")];
 
     srcNftMAF = "0x78D0c876c658682a3D117a0298aB9Ed3F5D09d29";
     chidsMAF = [lineamainChainID];
