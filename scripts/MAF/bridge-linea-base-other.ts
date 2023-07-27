@@ -33,15 +33,24 @@ switch (network.name) {
 
     srcNftMAF = "0x852759BDdd5C9170E24135C76957C50A732f1d5a";
     chidsMAF = [lineamainChainID, basemainChainID];
-    dstNftsMAF = ["0xcb11b3A77F943337D920232eE13b1CEDb6C99b72", ""];
+    dstNftsMAF = [
+      "0xcb11b3A77F943337D920232eE13b1CEDb6C99b72",
+      "0x40F8a04064b3090dc8786CeF963961f0DC4B092B",
+    ];
 
     srcNftNoBridgeMAF = "0x6CF6384D05EC0c430af3aC46135D4574cCeeF97d";
     chidsNoBridgeMAF = [lineamainChainID, basemainChainID];
-    dstNftsNoBridgeMAF = ["0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2", ""];
+    dstNftsNoBridgeMAF = [
+      "0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2",
+      "0xE59E4d47A3DAcfb9E81277D94B75673a767Ed73B",
+    ];
 
     srcNftRelics = "0x0Ae14d584A55094Eb2f4Ac5B256216649947ca01";
     chidsRelics = [lineamainChainID, basemainChainID];
-    dstNftsRelics = ["0x4960edA41a25C6C0feDbe8798940cB4585E36311", ""];
+    dstNftsRelics = [
+      "0x4960edA41a25C6C0feDbe8798940cB4585E36311",
+      "0x2DE9EBBf50E3f57858d78b51F7fF9a790064d5A1",
+    ];
 
     break;
   case "zkSyncMainnet":
@@ -53,15 +62,24 @@ switch (network.name) {
 
     srcNftMAF = "0x78D0c876c658682a3D117a0298aB9Ed3F5D09d29";
     chidsMAF = [lineamainChainID, basemainChainID];
-    dstNftsMAF = ["0xcb11b3A77F943337D920232eE13b1CEDb6C99b72", ""];
+    dstNftsMAF = [
+      "0xcb11b3A77F943337D920232eE13b1CEDb6C99b72",
+      "0x40F8a04064b3090dc8786CeF963961f0DC4B092B",
+    ];
 
     srcNftNoBridgeMAF = "0xd522d1ff2842C0446080E80d12C6a18a370beF0b";
     chidsNoBridgeMAF = [lineamainChainID, basemainChainID];
-    dstNftsNoBridgeMAF = ["0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2", ""];
+    dstNftsNoBridgeMAF = [
+      "0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2",
+      "0xE59E4d47A3DAcfb9E81277D94B75673a767Ed73B",
+    ];
 
     srcNftRelics = "0x4f14D5CcC7D9227bd9F8c373128345fEd4936C6f";
     chidsRelics = [lineamainChainID, basemainChainID];
-    dstNftsRelics = ["0x4960edA41a25C6C0feDbe8798940cB4585E36311", ""];
+    dstNftsRelics = [
+      "0x4960edA41a25C6C0feDbe8798940cB4585E36311",
+      "0x2DE9EBBf50E3f57858d78b51F7fF9a790064d5A1",
+    ];
     break;
   case "lineamainnet":
     chids = [basemainChainID];
@@ -69,15 +87,15 @@ switch (network.name) {
 
     srcNftMAF = "0xcb11b3A77F943337D920232eE13b1CEDb6C99b72";
     chidsMAF = [basemainChainID];
-    dstNftsMAF = [""];
+    dstNftsMAF = ["0x40F8a04064b3090dc8786CeF963961f0DC4B092B"];
 
     srcNftNoBridgeMAF = "0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2";
     chidsNoBridgeMAF = [basemainChainID];
-    dstNftsNoBridgeMAF = [""];
+    dstNftsNoBridgeMAF = ["0xE59E4d47A3DAcfb9E81277D94B75673a767Ed73B"];
 
     srcNftRelics = "0x4960edA41a25C6C0feDbe8798940cB4585E36311";
     chidsRelics = [basemainChainID];
-    dstNftsRelics = [""];
+    dstNftsRelics = ["0x2DE9EBBf50E3f57858d78b51F7fF9a790064d5A1"];
     break;
 }
 

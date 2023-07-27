@@ -5,6 +5,7 @@ bridge:
     polygon zkevm: 0xA84E60c92B2731868a51850560767B59DAa5feB0 ()
     zksync: 0x6a05464cb3D7b20ad3e4203C2B181F1B50f62b77 
     linea: 0x83677973C6e819f98159CC59440A5E2EdCD9f276
+    base: 0x678531408b3273c9a2D734F26898a36AE7CCA16f
 
 MAF: ape <=> bsc <=> polygon <=> polygon zkevm
     polygon: 0x5409A1CD58FAF6d2Ad5Abc30c4C550C9fa85C909 (owner to mulsig, image contract)
@@ -14,6 +15,7 @@ MAF: ape <=> bsc <=> polygon <=> polygon zkevm
     ape: 0xf9eba2fe3f8d03d098a439fab2038c737d3dbb94 (celer)
     zksync: 0x78D0c876c658682a3D117a0298aB9Ed3F5D09d29
     linea: 0xcb11b3A77F943337D920232eE13b1CEDb6C99b72
+    base: 0x40F8a04064b3090dc8786CeF963961f0DC4B092B
 
 relics: ape => polygon zkevm、 polygon <=> polygon zkevm
     ape:  0xA72b7321517A763Dd879019564406fB5fC39cfd0 (leader)
@@ -21,6 +23,7 @@ relics: ape => polygon zkevm、 polygon <=> polygon zkevm
     polygon zkevm: 0x0Ae14d584A55094Eb2f4Ac5B256216649947ca01 ()
     zksync: 0x4f14D5CcC7D9227bd9F8c373128345fEd4936C6f
     linea: 0x4960edA41a25C6C0feDbe8798940cB4585E36311
+    base: 0x2DE9EBBf50E3f57858d78b51F7fF9a790064d5A1
 
 no bridge MAF: ape <=> polygon <=> polygon zkevm
     ape: 0xc805C32B3D9a29E54F6c01d4d0a322697BE23C64 (upgraded)
@@ -28,6 +31,8 @@ no bridge MAF: ape <=> polygon <=> polygon zkevm
     polygon zkevm: 0x6CF6384D05EC0c430af3aC46135D4574cCeeF97d ()
     zksync: 0xd522d1ff2842C0446080E80d12C6a18a370beF0b
     linea: 0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2
+    base: 0xE59E4d47A3DAcfb9E81277D94B75673a767Ed73B
+
 
 
 owner:

@@ -14,7 +14,7 @@ const polygonmainzkevmChainID = 1101;
 const lineamainChainID = 59144;
 
 async function main() {
-  if (network.name !== "lineamainnet") {
+  if (network.name !== "basemainnet") {
     return;
   }
 
@@ -43,7 +43,7 @@ async function main() {
 
   // MAF
   tx = await bridgeProxy.setDestNftAddr(
-    "",
+    "0x40F8a04064b3090dc8786CeF963961f0DC4B092B",
     [
       apemainChainID,
       bscmainChainID,
@@ -66,7 +66,7 @@ async function main() {
 
   // relics
   tx = await bridgeProxy.setDestNftAddr(
-    "",
+    "0x2DE9EBBf50E3f57858d78b51F7fF9a790064d5A1",
     [
       apemainChainID,
       polygonmainChainID,
@@ -87,7 +87,7 @@ async function main() {
 
   // no bridge MAF
   tx = await bridgeProxy.setDestNftAddr(
-    "",
+    "0xE59E4d47A3DAcfb9E81277D94B75673a767Ed73B",
     [
       apemainChainID,
       polygonmainChainID,
