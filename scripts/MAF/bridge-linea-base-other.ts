@@ -6,6 +6,7 @@ import { CONTRACTS } from "../../config";
 
 const { bridge } = CONTRACTS[network.name];
 const lineamainChainID = 59144;
+const basemainChainID = 8453;
 
 let chids: number[];
 let txfees: BigNumber[];
@@ -24,37 +25,59 @@ let dstNftsRelics: string[];
 
 switch (network.name) {
   case "polygontestzkevm":
-    chids = [lineamainChainID];
-    txfees = [ethers.utils.parseEther("0.0005")];
+    chids = [lineamainChainID, basemainChainID];
+    txfees = [
+      ethers.utils.parseEther("0.0005"),
+      ethers.utils.parseEther("0.0005"),
+    ];
 
     srcNftMAF = "0x852759BDdd5C9170E24135C76957C50A732f1d5a";
-    chidsMAF = [lineamainChainID];
-    dstNftsMAF = ["0xcb11b3A77F943337D920232eE13b1CEDb6C99b72"];
+    chidsMAF = [lineamainChainID, basemainChainID];
+    dstNftsMAF = ["0xcb11b3A77F943337D920232eE13b1CEDb6C99b72", ""];
 
     srcNftNoBridgeMAF = "0x6CF6384D05EC0c430af3aC46135D4574cCeeF97d";
-    chidsNoBridgeMAF = [lineamainChainID];
-    dstNftsNoBridgeMAF = ["0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2"];
+    chidsNoBridgeMAF = [lineamainChainID, basemainChainID];
+    dstNftsNoBridgeMAF = ["0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2", ""];
 
     srcNftRelics = "0x0Ae14d584A55094Eb2f4Ac5B256216649947ca01";
-    chidsRelics = [lineamainChainID];
-    dstNftsRelics = ["0x4960edA41a25C6C0feDbe8798940cB4585E36311"];
+    chidsRelics = [lineamainChainID, basemainChainID];
+    dstNftsRelics = ["0x4960edA41a25C6C0feDbe8798940cB4585E36311", ""];
 
     break;
   case "zkSyncMainnet":
-    chids = [lineamainChainID];
-    txfees = [ethers.utils.parseEther("0.0005")];
+    chids = [lineamainChainID, basemainChainID];
+    txfees = [
+      ethers.utils.parseEther("0.0005"),
+      ethers.utils.parseEther("0.0005"),
+    ];
 
     srcNftMAF = "0x78D0c876c658682a3D117a0298aB9Ed3F5D09d29";
-    chidsMAF = [lineamainChainID];
-    dstNftsMAF = ["0xcb11b3A77F943337D920232eE13b1CEDb6C99b72"];
+    chidsMAF = [lineamainChainID, basemainChainID];
+    dstNftsMAF = ["0xcb11b3A77F943337D920232eE13b1CEDb6C99b72", ""];
 
     srcNftNoBridgeMAF = "0xd522d1ff2842C0446080E80d12C6a18a370beF0b";
-    chidsNoBridgeMAF = [lineamainChainID];
-    dstNftsNoBridgeMAF = ["0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2"];
+    chidsNoBridgeMAF = [lineamainChainID, basemainChainID];
+    dstNftsNoBridgeMAF = ["0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2", ""];
 
     srcNftRelics = "0x4f14D5CcC7D9227bd9F8c373128345fEd4936C6f";
-    chidsRelics = [lineamainChainID];
-    dstNftsRelics = ["0x4960edA41a25C6C0feDbe8798940cB4585E36311"];
+    chidsRelics = [lineamainChainID, basemainChainID];
+    dstNftsRelics = ["0x4960edA41a25C6C0feDbe8798940cB4585E36311", ""];
+    break;
+  case "lineamainnet":
+    chids = [basemainChainID];
+    txfees = [ethers.utils.parseEther("0.0005")];
+
+    srcNftMAF = "0xcb11b3A77F943337D920232eE13b1CEDb6C99b72";
+    chidsMAF = [basemainChainID];
+    dstNftsMAF = [""];
+
+    srcNftNoBridgeMAF = "0x121eb86A536585074Ee3a124bd9a0D93dF7af5A2";
+    chidsNoBridgeMAF = [basemainChainID];
+    dstNftsNoBridgeMAF = [""];
+
+    srcNftRelics = "0x4960edA41a25C6C0feDbe8798940cB4585E36311";
+    chidsRelics = [basemainChainID];
+    dstNftsRelics = [""];
     break;
 }
 
