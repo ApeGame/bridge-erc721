@@ -8,8 +8,8 @@ const { bridge } = CONTRACTS[network.name];
 const lineamainChainID = 59144;
 const basemainChainID = 8453;
 
-let chids: number[];
-let txfees: BigNumber[];
+let chids: number[] = [];
+let txfees: BigNumber[] = [];
 
 let srcNftMAF: string = "";
 let chidsMAF: number[] = [];
@@ -24,7 +24,7 @@ let chidsRelics: number[] = [];
 let dstNftsRelics: string[];
 
 switch (network.name) {
-  case "polygontestzkevm":
+  case "polygonmainnetzkevm":
     chids = [lineamainChainID, basemainChainID];
     txfees = [
       ethers.utils.parseEther("0.0005"),
@@ -102,12 +102,13 @@ switch (network.name) {
 async function main() {
   const bridgeProxy = await ethers.getContractAt("BridgeNFT", bridge);
 
-  if (network.name === "polygontestzkevm") {
+  if (network.name === "polygonmainnetzkevm") {
     // Set Bridge Operator as Payee
     const tx = await bridgeProxy.setPayee(
       "0x5767A8EdE4d14595162920C4019a5e79D685FF67"
     );
     await tx.wait();
+    console.log("set payee complete");
   }
 
   if (chids.length > 0 && chids.length === txfees.length) {
