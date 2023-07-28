@@ -11,7 +11,7 @@ export const CONTRACTS: { [network: string]: any } = {
   zkSyncMainnet: {
     proxyAdmin: "0x43F970Fb4256763b3C03bED26Df01eBDA6F488A5",
     proxyAdminPrivate: "abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1",
-    owner: "0x463c07ef14cfb85cf79415245aab68ad5aaafa9d",
+    owner: "0x21De102994Bc986e02A795E0f39e5275817E7eF3",
     ownerPrivate: "",
     bridge: "0x6a05464cb3D7b20ad3e4203C2B181F1B50f62b77",
   },
