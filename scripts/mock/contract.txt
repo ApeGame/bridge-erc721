@@ -18,6 +18,7 @@ MAF:
 
 relics:  coq <=> polygon zkevm <=> zksync <=> polygon  <=> linea
     coq-test: 0x41ecfB27845912A952A1774971d6F9D95C84c370
+    bsc-test: 0xDB333aFd314231B378b4505961509372a2DBcaaD
     polygon-test: 0x77E825be7701Fe49D4b825304C77B3754f80D54d
     polygon-test-zkevm: 0xea521f8Befd103F0A462ff81b3cBc8A0ebb65987 (new)
     zksync-test: 0x226d9DF3Cf487aCd1B384dc180a93B6618C11102
