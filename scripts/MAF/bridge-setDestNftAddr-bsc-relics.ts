@@ -17,7 +17,7 @@ let srcNft: string = "";
 let chids: number[] = [];
 let dstNfts: string[] = [];
 if (network.name === "bscmainnet") {
-  srcNft = "0xcccccccccccccccccccccccccccccccccccccccc";
+  srcNft = "0xd02e2673a4A1CC7B85e86a9D37C61b87dd633b5e";
   chids = [
     apemainChainID,
     polygonmainChainID,
@@ -37,23 +37,23 @@ if (network.name === "bscmainnet") {
 } else if (network.name === "apemain") {
   srcNft = "0xA72b7321517A763Dd879019564406fB5fC39cfd0";
   chids = [bscmainChainID];
-  dstNfts = ["0xcccccccccccccccccccccccccccccccccccccccc"];
+  dstNfts = ["0xd02e2673a4A1CC7B85e86a9D37C61b87dd633b5e"];
 } else if (network.name === "polygonmainnetzkevm") {
   srcNft = "0x0Ae14d584A55094Eb2f4Ac5B256216649947ca01";
   chids = [bscmainChainID];
-  dstNfts = ["0xcccccccccccccccccccccccccccccccccccccccc"];
+  dstNfts = ["0xd02e2673a4A1CC7B85e86a9D37C61b87dd633b5e"];
 } else if (network.name === "zksyncmainnet") {
   srcNft = "0x4f14D5CcC7D9227bd9F8c373128345fEd4936C6f";
   chids = [bscmainChainID];
-  dstNfts = ["0xcccccccccccccccccccccccccccccccccccccccc"];
+  dstNfts = ["0xd02e2673a4A1CC7B85e86a9D37C61b87dd633b5e"];
 } else if (network.name === "lineamain") {
   srcNft = "0x4960edA41a25C6C0feDbe8798940cB4585E36311";
   chids = [bscmainChainID];
-  dstNfts = ["0xcccccccccccccccccccccccccccccccccccccccc"];
+  dstNfts = ["0xd02e2673a4A1CC7B85e86a9D37C61b87dd633b5e"];
 } else if (network.name === "basemainnet") {
   srcNft = "0x2DE9EBBf50E3f57858d78b51F7fF9a790064d5A1";
   chids = [bscmainChainID];
-  dstNfts = ["0xcccccccccccccccccccccccccccccccccccccccc"];
+  dstNfts = ["0xd02e2673a4A1CC7B85e86a9D37C61b87dd633b5e"];
 }
 
 async function main() {
