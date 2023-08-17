@@ -46,7 +46,7 @@ if (network.name === "bscmainnet") {
   srcNft = "0x4f14D5CcC7D9227bd9F8c373128345fEd4936C6f";
   chids = [bscmainChainID];
   dstNfts = ["0xd02e2673a4A1CC7B85e86a9D37C61b87dd633b5e"];
-} else if (network.name === "lineamain") {
+} else if (network.name === "lineamainnet") {
   srcNft = "0x4960edA41a25C6C0feDbe8798940cB4585E36311";
   chids = [bscmainChainID];
   dstNfts = ["0xd02e2673a4A1CC7B85e86a9D37C61b87dd633b5e"];

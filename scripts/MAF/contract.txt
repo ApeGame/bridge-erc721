@@ -19,7 +19,7 @@ MAF: ape <=> bsc <=> polygon <=> polygon zkevm
 
 relics: ape => polygon zkevm、 polygon <=> polygon zkevm
     ape:  0xA72b7321517A763Dd879019564406fB5fC39cfd0 (leader)
-    bsc: 
+    bsc: 0xd02e2673a4A1CC7B85e86a9D37C61b87dd633b5e
     polygon:  0xe13c50c3120eEf7731B7223905701D2cA8E68882 (owner to mulsig)
     polygon zkevm: 0x0Ae14d584A55094Eb2f4Ac5B256216649947ca01 ()
     zksync: 0x4f14D5CcC7D9227bd9F8c373128345fEd4936C6f
