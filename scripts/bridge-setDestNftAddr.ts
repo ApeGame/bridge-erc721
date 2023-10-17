@@ -1,60 +1,39 @@
-// eslint-disable-next-line node/no-missing-import
-import { ethers, network } from "hardhat";
-// eslint-disable-next-line node/no-missing-import
-import { CONTRACTS } from "../config";
+import { types, task } from "hardhat/config";
+import { addresses, ints } from "./common";
 
-const { mockerc721, bridge } = CONTRACTS[network.name];
+// hardhat bridge:setDestNftAddr --network ankr --srcnft 0x866df3e1b203cc3bf50eb4f707d29ce5b665d4d1 --destchainids 97,80001  --destnfts 0x6Be6B9b8FA71D150Ca7e3A6431FdA868a099A288,0x3c9bEc762e3C78357B7300701aBaF1d8cDC9678c 0xc09d350573715CD441791603c4F01a59Dd832699
 
-const srcNft: string = mockerc721;
-let chids: number[];
-let dstNfts: string[];
-if (network.name === "bscmainnet") {
-  chids = [137, 16350];
-  dstNfts = [
-    "0x2529Bc7cFfedb3a82f2b6d904d8B03F052dF766b",
-    "0xaaeb64F976B4b5e6D0Adf08e285486ec42d7538b",
-    "0x5cc3847389431B2d4CBAAE6489Ac1473F877e966",
-    "0x2897153fB614E00d2C3Ab1230c0B843260E0eca9",
-  ];
-} else if (network.name === "basmainnet") {
-  chids = [56, 137];
-  dstNfts = [
-    "0xaaeb64F976B4b5e6D0Adf08e285486ec42d7538b",
-    "0x079EB6Fb04F9C480D698a025a8EAa0222C05D01A",
-    "0x5cc3847389431B2d4CBAAE6489Ac1473F877e966",
-    "0x2897153fB614E00d2C3Ab1230c0B843260E0eca9",
-  ];
-} else if (network.name === "polygonmainnet") {
-  chids = [56, 16350];
-  dstNfts = [
-    "0x2529Bc7cFfedb3a82f2b6d904d8B03F052dF766b",
-    "0x079EB6Fb04F9C480D698a025a8EAa0222C05D01A",
-    "0x5cc3847389431B2d4CBAAE6489Ac1473F877e966",
-    "0x2897153fB614E00d2C3Ab1230c0B843260E0eca9",
-  ];
-} else if (network.name === "localhost") {
-  chids = [1307];
-  dstNfts = [mockerc721];
-} else if (network.name === "bsctest") {
-  chids = [12077];
-  dstNfts = ["0xA3dC8E06d41393286683A5Fc36b6D7246F73bb68"];
-} else if (network.name === "ankr") {
-  chids = [97];
-  dstNfts = ["0x1710C34AcDF4a6758a6039187f75F627B741ee0e"];
-}
+task("bridge:setDestNftAddr", "set dest nft for bridge")
+  .addOptionalPositionalParam("contract", "bridge contract", "", types.string)
+  .addParam("srcnft", "src nft", "", types.string)
+  .addParam("destchainids", "dest chain ids", "", ints)
+  .addParam("destnfts", "", "dest nfts", addresses)
+  .setAction(async (taskArgs, hre) => {
+    const contract: string = taskArgs.contract;
+    const srcnft: string = taskArgs.srcnft;
+    const destchainids: number[] = taskArgs.destchainids;
+    const destnfts: string[] = taskArgs.destnfts;
 
-async function main() {
-  // 2 setDestNftAddr for bridge
-  const bridgeProxy = await ethers.getContractAt("BridgeNFT", bridge);
-  if (chids.length !== 0) {
-    const tx = await bridgeProxy.setDestNftAddr(srcNft, chids, dstNfts);
+    if (!hre.ethers.utils.isAddress(contract)) {
+      console.log("invalid bridge contract");
+      return "";
+    }
+    if (destchainids.length !== destnfts.length) {
+      console.log("destcainids is inconsistent with destnfts");
+      return "";
+    }
+
+    const BridgeNFTFactory = await hre.ethers.getContractAt(
+      "BridgeNFT",
+      contract
+    );
+
+    const tx = await BridgeNFTFactory.setDestNftAddr(
+      srcnft,
+      destchainids,
+      destnfts
+    );
+    console.log(`set dest nft tx: ${tx.hash}`);
+
     await tx.wait();
-    console.log("setDestNftAddr for bridge");
-  }
-}
-
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-  console.log(`deploy err, msg ${error}`);
-});
+  });

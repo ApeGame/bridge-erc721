@@ -1,22 +1,31 @@
-// eslint-disable-next-line node/no-missing-import
-import { ethers, network } from "hardhat";
-// eslint-disable-next-line node/no-missing-import
-import { CONTRACTS } from "../config";
+import { types, task } from "hardhat/config";
 
-const { bridge } = CONTRACTS[network.name];
+// hardhat bridge:setPayee --network ankr --payee 0x20cD8eB93c50BDAc35d6A526f499c0104958e3F6 0xc09d350573715CD441791603c4F01a59Dd832699
 
-const payee = "0x47879ddeb5c5950d56089db7bc1ba2b8509bf487";
+task("bridge:setPayee", "set payee for bridge")
+  .addOptionalPositionalParam("contract", "bridge contract", "", types.string)
+  .addParam("payee", "payee address", "", types.string)
+  .setAction(async (taskArgs, hre) => {
+    const contract: string = taskArgs.contract;
+    const payee: string = taskArgs.payee;
 
-async function main() {
-  // 2 setDestNftAddr for bridge
-  const bridgeProxy = await ethers.getContractAt("BridgeNFT", bridge);
-  const tx = await bridgeProxy.setPayee(payee);
-  await tx.wait();
-  console.log(`setPayee(${payee}) for bridge`);
-}
+    if (!hre.ethers.utils.isAddress(contract)) {
+      console.log("invalid bridge contract");
+      return "";
+    }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-  console.log(`deploy err, msg ${error}`);
-});
+    if (!hre.ethers.utils.isAddress(payee)) {
+      console.log("invalid payee address");
+      return "";
+    }
+
+    const BridgeNFTFactory = await hre.ethers.getContractAt(
+      "BridgeNFT",
+      contract
+    );
+
+    const tx = await BridgeNFTFactory.setPayee(payee);
+    console.log(`set payee tx: ${tx.hash}`);
+
+    await tx.wait();
+  });

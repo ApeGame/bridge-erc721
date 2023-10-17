@@ -1,23 +1,33 @@
-// eslint-disable-next-line node/no-missing-import
-import { ethers, network } from "hardhat";
-// eslint-disable-next-line node/no-missing-import
-import { CONTRACTS } from "../config";
+import { types, task } from "hardhat/config";
 
-const { bridge } = CONTRACTS[network.name];
+// hardhat bridge:setAdmin --network ankr --admin 0xd6a5914e2b8676bd8fd2fcd9c0fd1fcf1b5a9411 0xc09d350573715CD441791603c4F01a59Dd832699
 
-const admin: string = "0xd6a5914e2b8676bd8fd2fcd9c0fd1fcf1b5a9411";
+task("bridge:setAdmin", "set admin for bridge")
+  .addOptionalPositionalParam("contract", "bridge contract", "", types.string)
+  .addParam("admin", "admin address", "", types.string)
+  .addParam("auth", "Whether to grant permissions", true, types.boolean)
+  .setAction(async (taskArgs, hre) => {
+    const contract: string = taskArgs.contract;
+    const admin: string = taskArgs.admin;
+    const auth: boolean = taskArgs.auth;
 
-async function main() {
-  const bridgeProxy = await ethers.getContractAt("BridgeNFT", bridge);
-  const tx = await bridgeProxy.setAdmin(admin, true);
+    if (!hre.ethers.utils.isAddress(contract)) {
+      console.log("invalid bridge contract");
+      return "";
+    }
 
-  console.log(`bridge setAdmin tx: ${tx.hash}`);
-  await tx.wait();
-  console.log("bridge setAdmin complete");
-}
+    if (!hre.ethers.utils.isAddress(admin)) {
+      console.log("invalid admin address");
+      return "";
+    }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-  console.log(`deploy err, msg ${error}`);
-});
+    const BridgeNFTFactory = await hre.ethers.getContractAt(
+      "BridgeNFT",
+      contract
+    );
+
+    const tx = await BridgeNFTFactory.setAdmin(admin, auth);
+    console.log(`set admin tx: ${tx.hash}`);
+
+    await tx.wait();
+  });
